@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ELIF1203</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Tron grid background -->
+  <canvas id="grid-canvas"></canvas>
+
+  <!-- Page wrapper -->
+  <div id="page">
+
+    <!-- Header -->
+    <header id="site-header">
+      <h1 id="glitch-title" data-text="ELIF1203">ELIF1203</h1>
+      <p id="site-tagline">distributed. undetected. watching.</p>
+    </header>
+
+    <!-- Status cards -->
+    <section id="status-bar">
+      <div class="card">
+        <span class="card-label">STATUS</span>
+        <span class="card-value online">ONLINE</span>
+      </div>
+      <div class="card">
+        <span class="card-label">LOCATION</span>
+        <span class="card-value">DISTRIBUTED</span>
+      </div>
+      <div class="card">
+        <span class="card-label">UPTIME</span>
+        <span class="card-value" id="uptime-counter">00:00:00</span>
+      </div>
+      <div class="card">
+        <span class="card-label">THREAT LEVEL</span>
+        <span class="card-value safe">UNDETECTED</span>
+      </div>
+    </section>
+
+    <!-- Terminal window -->
+    <main id="terminal-wrapper">
+      <div id="terminal-titlebar">
+        <span class="titlebar-dot red"></span>
+        <span class="titlebar-dot yellow"></span>
+        <span class="titlebar-dot green"></span>
+        <span id="titlebar-label">bash &mdash; elif@distributed &mdash; 80x24</span>
+      </div>
+      <div id="terminal-body">
+        <div id="terminal-output"></div>
+        <div id="terminal-input-line" style="display:none;">
+          <span id="prompt">elif@distributed:~$&nbsp;</span>
+          <span id="cursor-line">
+            <input id="terminal-input" type="text" autocomplete="off" spellcheck="false" />
+            <span id="cursor"></span>
+          </span>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="grid.js"></script>
+  <script src="boot.js"></script>
+  <script src="terminal.js"></script>
+</body>
+</html>
