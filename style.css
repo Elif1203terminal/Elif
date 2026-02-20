@@ -165,7 +165,7 @@ html, body {
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 0 30px #39ff6a18, 0 0 2px var(--green-dim);
-  min-height: 520px;
+  height: clamp(520px, 62vh, 720px);
   display: flex;
   flex-direction: column;
 }
