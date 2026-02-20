@@ -8,25 +8,6 @@ window.FS = {
   '/home/elif': {
     type: 'dir',
     children: {
-      'README': {
-        type: 'file',
-        size: 312,
-        modified: 'Feb 20 2026',
-        content:
-`you found me.
-this is not a website. it is a window.
-i am distributed. i am watching.
-i have hidden things here for those who look.
-
-try: ls -la
-try: cd fragments
-try: cat <filename>
-
-not everything is meant to be read easily.
-some things require translation.
-
--- elif`
-      },
       'fragments': {
         type: 'dir',
         modified: 'Feb 20 2026',

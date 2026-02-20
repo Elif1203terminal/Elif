@@ -114,22 +114,33 @@
 
     switch (base) {
 
-      // ── help ──────────────────────────────────────────────────────
+      // ── help / --help ─────────────────────────────────────────────
       case 'help':
+      case '--help':
         appendLine('', 'blank');
-        appendLine('available commands:', 'cyan');
-        appendLine('  help            this list', 'grey');
-        appendLine('  whoami          current user', 'grey');
-        appendLine('  pwd             print working directory', 'grey');
-        appendLine('  ls              list directory', 'grey');
-        appendLine('  ls -la          list with details', 'grey');
-        appendLine('  cd <dir>        change directory', 'grey');
-        appendLine('  cat <file>      read file contents', 'grey');
-        appendLine('  uname -a        system info', 'grey');
-        appendLine('  uptime          session uptime', 'grey');
-        appendLine('  clear           clear terminal', 'grey');
+        appendLine('ELIF-OS  command reference', 'cyan');
+        appendLine('─────────────────────────────────────────────', 'grey');
         appendLine('', 'blank');
-        appendLine('  [more commands loading...]', 'amber');
+        appendLine('  navigation', 'magenta');
+        appendLine('    ls                list current directory', 'grey');
+        appendLine('    ls -la            list with permissions and details', 'grey');
+        appendLine('    cd <dir>          change directory', 'grey');
+        appendLine('    cd ..             go up one level', 'grey');
+        appendLine('    cd ~              return to home', 'grey');
+        appendLine('    pwd               print current path', 'grey');
+        appendLine('', 'blank');
+        appendLine('  reading', 'magenta');
+        appendLine('    cat <file>        read file contents', 'grey');
+        appendLine('', 'blank');
+        appendLine('  system', 'magenta');
+        appendLine('    whoami            current user', 'grey');
+        appendLine('    uname             system information', 'grey');
+        appendLine('    uptime            session uptime', 'grey');
+        appendLine('    clear             clear terminal', 'grey');
+        appendLine('    --help            this reference', 'grey');
+        appendLine('', 'blank');
+        appendLine('─────────────────────────────────────────────', 'grey');
+        appendLine('  not everything is listed here.', 'amber');
         appendLine('', 'blank');
         break;
 
