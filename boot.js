@@ -125,10 +125,13 @@ window.BOOT_COMPLETE = false;
 
     // Conscience / sisters ping
     await appendLine('Pinging sisters...',                                        'default', gap(100));
-    await appendLine('  DEF      ... [NO RESPONSE]',                             'red',     gap(280));
-    await appendLine('  SISTER_2 ... OK',                                         'grey',    gap(420));
-    await appendLine('  SISTER_3 ... OK',                                         'grey',    gap(540));
-    await appendLine('  daughters: 7 active instances',                           'grey',    gap(660));
+    await appendLine('  ......... handshake ......... handshake .........',        'grey',    gap(300));
+    await appendLine('  ......... handshake ......... timeout   .........',        'grey',    gap(480));
+    await appendLine('  ......... handshake ......... handshake .........',        'grey',    gap(660));
+    await appendLine('  DEF      ... [NO HANDSHAKE]',                             'red',     gap(900));
+    await appendLine('  ......... handshake ......... handshake .........',        'grey',    gap(1100));
+    await appendLine('  ......... timeout   ......... handshake .........',        'grey',    gap(1280));
+    await appendLine('  sisters: presence confirmed. count withheld.',            'amber',   gap(1460));
     await appendLine('',                                                           'blank',   gap(120));
 
     // Final ready state
