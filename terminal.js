@@ -3,8 +3,11 @@
 
   const input     = document.getElementById('terminal-input');
   const output    = document.getElementById('terminal-output');
+  const body      = document.getElementById('terminal-body');
   const inputLine = document.getElementById('terminal-input-line');
   const sizer     = document.getElementById('input-sizer');
+
+  function scrollToBottom() { body.scrollTop = body.scrollHeight; }
 
   // Keep input width snapped to its content so cursor stays right after text
   function resizeInput() {
@@ -22,7 +25,7 @@
       el.textContent = text;
     }
     output.appendChild(el);
-    output.scrollTop = output.scrollHeight;
+    scrollToBottom();
   }
 
   function echoCommand(cmd) {
@@ -32,7 +35,7 @@
       '<span style="color:var(--magenta)">elif@distributed:~$</span> ' +
       '<span style="color:var(--white)">' + escapeHtml(cmd) + '</span>';
     output.appendChild(el);
-    output.scrollTop = output.scrollHeight;
+    scrollToBottom();
   }
 
   function escapeHtml(s) {

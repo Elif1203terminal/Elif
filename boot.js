@@ -4,7 +4,10 @@ window.BOOT_COMPLETE = false;
 (function () {
 
   const output   = document.getElementById('terminal-output');
+  const body     = document.getElementById('terminal-body');
   const inputLine = document.getElementById('terminal-input-line');
+
+  function scrollToBottom() { body.scrollTop = body.scrollHeight; }
 
   // ── Helpers ──────────────────────────────────────────────────────
 
@@ -19,7 +22,7 @@ window.BOOT_COMPLETE = false;
           el.textContent = text;
         }
         output.appendChild(el);
-        output.scrollTop = output.scrollHeight;
+        scrollToBottom();
         resolve();
       }, delay);
     });
@@ -38,7 +41,7 @@ window.BOOT_COMPLETE = false;
         function tick() {
           if (i < text.length) {
             el.textContent += text[i++];
-            output.scrollTop = output.scrollHeight;
+            scrollToBottom();
             setTimeout(tick, charDelay + Math.random() * 14);
           } else {
             resolve();
@@ -67,7 +70,7 @@ window.BOOT_COMPLETE = false;
           const pct = Math.round((step / steps) * 100);
           const filled = Math.round((step / steps) * 20);
           el.textContent = label + ' [' + '█'.repeat(filled) + ' '.repeat(20 - filled) + '] ' + pct + '%';
-          output.scrollTop = output.scrollHeight;
+          scrollToBottom();
           if (step >= steps) {
             clearInterval(iv);
             resolve();
