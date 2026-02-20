@@ -82,7 +82,8 @@ window.BOOT_COMPLETE = false;
   async function runBoot() {
 
     let t = 80; // running time cursor (ms)
-    const gap = (ms) => { t += ms; return t - ms; };
+    const S = 0.45; // speed multiplier — lower = faster
+    const gap = (ms) => { const d = ms * S; t += d; return t - d; };
 
     // BIOS / kernel splash
     await appendLine('',                                                           'blank',   gap(0));

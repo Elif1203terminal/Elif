@@ -251,7 +251,18 @@ html, body {
   font-family: var(--font-mono);
   font-size: 0.9rem;
   caret-color: transparent;
-  width: 100%;
+  width: 2px;
+  min-width: 2px;
+}
+
+/* Hidden span used to measure input text width */
+#input-sizer {
+  position: absolute;
+  visibility: hidden;
+  white-space: pre;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  pointer-events: none;
 }
 
 #cursor {

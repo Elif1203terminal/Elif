@@ -1,9 +1,17 @@
 // Terminal input handler — placeholder until command logic is built
 (function () {
 
-  const input    = document.getElementById('terminal-input');
-  const output   = document.getElementById('terminal-output');
+  const input     = document.getElementById('terminal-input');
+  const output    = document.getElementById('terminal-output');
   const inputLine = document.getElementById('terminal-input-line');
+  const sizer     = document.getElementById('input-sizer');
+
+  // Keep input width snapped to its content so cursor stays right after text
+  function resizeInput() {
+    sizer.textContent = input.value;
+    input.style.width = Math.max(2, sizer.offsetWidth) + 'px';
+  }
+  input.addEventListener('input', resizeInput);
 
   function appendLine(text, cls) {
     const el = document.createElement('div');
@@ -108,6 +116,7 @@
     if (e.key === 'Enter') {
       const val = input.value;
       input.value = '';
+      resizeInput();
       handleCommand(val);
     }
   });
