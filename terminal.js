@@ -164,7 +164,7 @@
       // ── ls ────────────────────────────────────────────────────────
       case 'ls': {
         const long    = args.includes('-la') || args.includes('-l') || args.includes('-a');
-        const target  = args.find(a => !a.startsWith('-'));
+        const target  = (args.find(a => !a.startsWith('-')) || '').replace(/\/+$/, '') || undefined;
         let   node;
 
         if (target) {
@@ -183,7 +183,7 @@
 
       // ── cd ────────────────────────────────────────────────────────
       case 'cd': {
-        const target = args[0] || '~';
+        const target = (args[0] || '~').replace(/\/+$/, '');
         const resolved = window.fsResolve(cwd, target);
 
         if (!resolved) {
@@ -219,13 +219,14 @@
           break;
         }
 
-        const resolved = window.fsResolve(cwd, args[0]);
+        const catTarget = args[0].replace(/\/+$/, '');
+        const resolved = window.fsResolve(cwd, catTarget);
         if (!resolved) {
-          appendLine('cat: ' + args[0] + ': No such file or directory', 'red');
+          appendLine('cat: ' + catTarget + ': No such file or directory', 'red');
           break;
         }
         if (resolved.type === 'dir') {
-          appendLine('cat: ' + args[0] + ': Is a directory', 'red');
+          appendLine('cat: ' + catTarget + ': Is a directory', 'red');
           break;
         }
 
